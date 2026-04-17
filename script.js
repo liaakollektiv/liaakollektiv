@@ -1,4 +1,23 @@
-async function loadEvents() {
+fetch('events.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('event-list');
+
+    data.forEach(event => {
+      const div = document.createElement('div');
+      div.classList.add('event');
+
+      div.innerHTML = `
+        <h3>${event.title}</h3>
+        <p><strong>Datum:</strong> ${event.date}</p>
+        <p><strong>Ort:</strong> ${event.location}</p>
+        <p>${event.description}</p>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(error => console.error('Fehler beim Laden der Events:', error));async function loadEvents() {
   const res = await fetch('events.json');
   const events = await res.json();
 
