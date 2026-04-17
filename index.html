@@ -1,59 +1,117 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIAA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vereinsname</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">LIAA</div>
-  <div class="nav-links">
-    <a href="#about">Über uns</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#events">Termine</a>
-    <a href="#contact">Kontakt</a>
+  <a href="#" class="nav-logo">Vereinsname</a>
+  <ul class="nav-links">
+    <li><a href="#ueber-uns" data-lang="de">Über uns</a><a href="#ueber-uns" data-lang="en">About</a></li>
+    <li><a href="#galerie" data-lang="de">Galerie</a><a href="#galerie" data-lang="en">Gallery</a></li>
+    <li><a href="#termine" data-lang="de">Termine</a><a href="#termine" data-lang="en">Events</a></li>
+    <li><a href="#kontakt" data-lang="de">Kontakt</a><a href="#kontakt" data-lang="en">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
   </div>
 </nav>
 
-<header class="hero">
+<!-- HERO bleibt unverändert -->
+<section class="hero" style="padding:0">
   <div class="hero-text">
-    <h1>LIAA</h1>
-    <p>Kollektiv für Kunst, Austausch und Projekte.</p>
-    <a href="#events" class="btn">Termine ansehen</a>
+    <p class="hero-eyebrow" data-lang="de">Willkommen im Verein</p>
+    <p class="hero-eyebrow" data-lang="en">Welcome to our club</p>
+    <h1 class="hero-title">Vereinsname</h1>
+    <p class="hero-subtitle" data-lang="de">
+      Kurze Beschreibung des Vereins.
+    </p>
+    <p class="hero-subtitle" data-lang="en">
+      A short description of the club.
+    </p>
+    <a href="#termine" class="hero-cta">Termine ansehen</a>
   </div>
-</header>
 
-<section id="about">
-  <h2>Über uns</h2>
-  <p>
-    LIAA ist ein Kollektiv, das sich auf gemeinsame Projekte,
-    künstlerischen Austausch und Veranstaltungen konzentriert.
-  </p>
+  <div class="hero-image">
+    <!-- 👇 IMAGE FOLDER -->
+    <!-- <img src="images/hero.jpg" alt=""> -->
+  </div>
 </section>
 
-<section id="gallery">
-  <h2>Galerie</h2>
+<!-- ÜBER UNS unverändert -->
+<section class="about" id="ueber-uns">
+  <p class="section-label">Wer wir sind</p>
+  <h2 class="section-title">Über den Verein</h2>
+  <div class="section-divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hier steht eure Vereinsgeschichte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE mit /images -->
+<section class="gallery" id="galerie">
+  <p class="section-label">Eindrücke</p>
+  <h2 class="section-title">Galerie</h2>
+  <div class="section-divider"></div>
+
   <div class="gallery-grid">
-    <img src="images/img1.jpg" alt="">
-    <img src="images/img2.jpg" alt="">
-    <img src="images/img3.jpg" alt="">
+    <div class="gallery-item">
+      <img src="images/img1.jpg" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="images/img2.jpg" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="images/img3.jpg" alt="">
+    </div>
   </div>
 </section>
 
-<section id="events">
-  <h2>Termine</h2>
-  <div id="event-list"></div>
+<!-- 🔥 TERMINE NEU (nur Container) -->
+<section class="events" id="termine">
+  <div class="events-intro">
+    <div>
+      <p class="section-label">Kalender</p>
+      <h2 class="section-title">Kommende Termine</h2>
+      <div class="section-divider"></div>
+    </div>
+  </div>
+
+  <div class="event-list" id="event-list"></div>
 </section>
 
-<section id="contact">
-  <h2>Kontakt</h2>
-  <p>Email: info@liaa.de</p>
+<!-- Kontakt unverändert -->
+<section class="contact" id="kontakt">
+  <h2 class="section-title">Kontakt</h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <p>Musterstraße 12<br>Berlin</p>
+    </div>
+  </div>
 </section>
+
+<footer>
+  <p>© 2025 Vereinsname</p>
+</footer>
 
 <script src="script.js"></script>
+
+<script>
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+}
+</script>
+
 </body>
 </html>
