@@ -1,4 +1,65 @@
-:root {
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d2b48c; /* hellbraun */
+  padding: 10px 20px;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.social img {
+  width: 20px;
+}
+
+/* MAIN */
+main {
+  background-color: #a67c52; /* dunkleres braun */
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* GALERIE */
+.gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 150px;
+  height: auto;
+}
+
+/* EVENTS */
+.event {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #ccc;
+  text-align: center;
+  padding: 10px;
+}:root {
   --cream: #F8F5F0;
   --dark: #1C1C1C;
   --mid: #4A4A4A;
