@@ -274,7 +274,7 @@ body {
 }
 .hero-desc {
   font-size: 1.05rem;
-  color: #FFD6ED;
+  color: var(--clr-surface);
   max-width: 440px;
   margin-bottom: 2.25rem;
   font-weight: 500;
