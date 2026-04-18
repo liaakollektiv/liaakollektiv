@@ -554,7 +554,7 @@ body {
 .event-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--clr-primary-m);
+  /* border-color: var(--clr-primary-m); */
 }
 .event-date {
   background: transparent;
