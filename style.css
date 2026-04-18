@@ -265,12 +265,12 @@ body {
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   font-weight: 700;
   line-height: 1.15;
-  color: #FFD6ED;
+  color: var(--clr-text);
   margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
 }
 .hero-title span {
-  color: var(--clr-text);
+  color: var(--clr-primary);
 }
 .hero-desc {
   font-size: 1.05rem;
