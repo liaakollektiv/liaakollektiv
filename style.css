@@ -265,16 +265,16 @@ body {
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   font-weight: 700;
   line-height: 1.15;
-  color: var(--clr-text);
+  color: #FFD6ED;
   margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
 }
 .hero-title span {
-  color: #FFD6ED;
+  color: var(--clr-primary);
 }
 .hero-desc {
   font-size: 1.05rem;
-  color: var(--clr-muted);
+  color: #FFD6ED;
   max-width: 440px;
   margin-bottom: 2.25rem;
   font-weight: 500;
