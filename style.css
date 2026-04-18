@@ -452,7 +452,7 @@ body {
    GALLERY
    ══════════════════════════════════════ */
 .gallery {
-  background: var(--clr-surface);
+  background: var(--clr-surface-3);
   border-top: 1px solid var(--clr-border);
 }
 .gallery-grid {
