@@ -229,7 +229,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #BF582F;
+  background: #bf582faf;
 }
 /* Tag pill */
 .hero-tag {
