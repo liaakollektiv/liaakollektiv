@@ -26,7 +26,7 @@
   --clr-primary-m: #BAD9EA;
 
   /* Accent = orange */
-  --clr-accent:    var(--orange);
+  --clr-accent:    var(--pink);
   --clr-accent-l:  #FAF0EA;
 
   /* Olive tones for subtle backgrounds */
