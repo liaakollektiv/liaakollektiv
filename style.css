@@ -26,12 +26,12 @@
   --clr-primary-m: #BAD9EA;
 
   /* Accent = orange */
-  --clr-accent:    var(--pink);
+  --clr-accent:    var(--orange);
   --clr-accent-l:  #FAF0EA;
 
   /* Olive tones for subtle backgrounds */
-  --clr-olive-l:   #C45B96;
-  --clr-olive-m:   #C45B96;
+  --clr-olive-l:   #F5F4E6;
+  --clr-olive-m:   #CBC287;
 
   /* Text */
   --clr-text:  #1A1714;
