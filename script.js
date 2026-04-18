@@ -1,25 +1,58 @@
 /* ─────────────────────────────────────────────
-   VEREINSSEITE · script.js
+   LIAA KOLLEKTIV · script.js
    ───────────────────────────────────────────── */
 
-/* ── LANGUAGE ── */
+/* ══════════════════════════════════════
+   LANGUAGE SYSTEM
+   ══════════════════════════════════════
+
+   Jedes Element mit data-de="..." und data-en="..."
+   bekommt beim Sprachenwechsel automatisch den
+   richtigen Text gesetzt.
+*/
+
 let currentLang = localStorage.getItem('lang') || 'de';
 
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-  document.body.dataset.lang = lang;
-  document.documentElement.lang = lang;
+/**
+ * Alle Elemente mit data-de / data-en Attributen
+ * auf die neue Sprache umschalten.
+ */
+function applyLang(lang) {
+  // Update alle Textelemente
+  document.querySelectorAll('[data-de],[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text !== null) {
+      // innerHTML erlaubt <br> in Texten
+      el.innerHTML = text;
+    }
+  });
 
+  // Sprachbuttons updaten
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
 
-  // Re-render events in new language
-  renderEvents();
+  // html-Tag updaten (Screenreader, SEO)
+  document.documentElement.lang = lang;
 }
 
-/* ── EVENTS RENDERING ── */
+/**
+ * Öffentliche Funktion — wird von den Buttons aufgerufen.
+ */
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  applyLang(lang);
+  renderEvents(); // Events neu rendern (mehrsprachig)
+}
+
+
+/* ══════════════════════════════════════
+   EVENTS RENDERING
+   Liest EVENTS aus events.js und baut
+   die Terminliste dynamisch auf.
+   ══════════════════════════════════════ */
+
 const STATUS_LABELS = {
   open:    { de: 'Offen',      en: 'Open' },
   members: { de: 'Mitglieder', en: 'Members only' },
@@ -30,12 +63,10 @@ function renderEvents() {
   const container = document.getElementById('event-list');
   if (!container) return;
 
-  if (!EVENTS || EVENTS.length === 0) {
+  if (typeof EVENTS === 'undefined' || EVENTS.length === 0) {
     container.innerHTML = `
       <div class="no-events">
-        <span data-de="Keine Termine eingetragen." data-en="No events listed.">
-          ${currentLang === 'de' ? 'Keine Termine eingetragen.' : 'No events listed.'}
-        </span>
+        ${currentLang === 'de' ? 'Keine Termine eingetragen.' : 'No events listed.'}
       </div>`;
     return;
   }
@@ -45,7 +76,6 @@ function renderEvents() {
     const location = currentLang === 'de' ? ev.location_de : ev.location_en;
     const month    = currentLang === 'de' ? ev.month_de    : ev.month_en;
     const badge    = STATUS_LABELS[ev.status] || STATUS_LABELS.open;
-    const badgeLabel = badge[currentLang];
 
     return `
     <div class="event-card reveal">
@@ -70,15 +100,17 @@ function renderEvents() {
           </span>
         </div>
       </div>
-      <span class="event-badge badge-${ev.status}">${badgeLabel}</span>
+      <span class="event-badge badge-${ev.status}">${badge[currentLang]}</span>
     </div>`;
   }).join('');
 
-  // trigger reveal for newly added cards
   observeReveal();
 }
 
-/* ── SCROLL REVEAL ── */
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL
+   ══════════════════════════════════════ */
 function observeReveal() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -92,37 +124,39 @@ function observeReveal() {
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
 }
 
-/* ── MOBILE MENU ── */
+
+/* ══════════════════════════════════════
+   MOBILE MENU
+   ══════════════════════════════════════ */
 function toggleMenu() {
-  const menu = document.getElementById('mobile-menu');
-  menu.classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
 }
 
 function closeMenu() {
   document.getElementById('mobile-menu').classList.remove('open');
 }
 
-/* ── INIT ── */
-document.addEventListener('DOMContentLoaded', () => {
-  // Apply saved language
-  document.body.dataset.lang = currentLang;
-  document.documentElement.lang = currentLang;
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === currentLang);
-  });
 
-  // Render events from events.js
+/* ══════════════════════════════════════
+   INIT
+   ══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Sprache anwenden (aus localStorage oder Standard: de)
+  applyLang(currentLang);
+
+  // Events rendern
   renderEvents();
 
-  // Scroll reveal for static elements
+  // Scroll-Reveal starten
   observeReveal();
 
-  // Close mobile menu when link clicked
+  // Mobile Menu: Links schließen das Menü
   document.querySelectorAll('#mobile-menu a').forEach(a => {
     a.addEventListener('click', closeMenu);
   });
 
-  // Active nav link highlight on scroll
+  // Aktiven Nav-Link beim Scrollen hervorheben
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a, #mobile-menu a');
 
@@ -130,12 +164,13 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(link => {
-          link.style.fontWeight = link.getAttribute('href') === '#' + entry.target.id ? '900' : '';
-          link.style.color = link.getAttribute('href') === '#' + entry.target.id ? 'var(--clr-primary)' : '';
+          const isActive = link.getAttribute('href') === '#' + entry.target.id;
+          link.style.color      = isActive ? 'var(--clr-primary)' : '';
+          link.style.fontWeight = isActive ? '900' : '';
         });
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.45 });
 
   sections.forEach(s => sectionObserver.observe(s));
 });
