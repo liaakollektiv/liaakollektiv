@@ -16,9 +16,9 @@
   --pink:   #C45B96;
 
   /* Surfaces */
-  --clr-bg:        #FFEF38;       /* warm parchment */
-  --clr-surface:   #BF582F;
-  --clr-surface-2: #F2EDE3;       /* slightly warmer */
+  --clr-bg:        #F8F5EE;       /* warm parchment */
+  --clr-surface:   #CBC287;
+  --clr-surface-2: #C45B96;       /* slightly warmer */
 
   /* Primary = blue */
   --clr-primary:   var(--blue);
