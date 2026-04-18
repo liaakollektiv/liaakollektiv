@@ -1,42 +1,34 @@
 <!DOCTYPE html>
-<html lang="de" data-lang="de">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vereinsname</title>
-  <meta name="description" content="Willkommen beim Verein — moderne, freundliche Vereinsseite.">
+  <title>LIAA Kollektiv</title>
+  <meta name="description" content="LIAA Kollektiv — Community Space für Black Literature.">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-lang="de">
+<body>
 
 <!-- ══════════════════════════════════════
      NAVIGATION
      ══════════════════════════════════════ -->
 <nav class="nav">
   <a href="#" class="nav-logo">
-    <div class="nav-logo-icon">V</div>
-    Vereinsname
+    <div class="nav-logo-icon">LIAA</div>
+    Kollektiv
   </a>
 
   <ul class="nav-links">
-    <li><a href="#ueber-uns"
-           data-de="Über uns"
-           data-en="About">Über uns</a></li>
-    <li><a href="#galerie"
-           data-de="Galerie"
-           data-en="Gallery">Galerie</a></li>
-    <li><a href="#termine"
-           data-de="Termine"
-           data-en="Events">Termine</a></li>
-    <li><a href="#kontakt"
-           data-de="Kontakt"
-           data-en="Contact">Kontakt</a></li>
+    <li><a href="#ueber-uns" data-de="Über uns"  data-en="About">Über uns</a></li>
+    <li><a href="#galerie"   data-de="Galerie"   data-en="Gallery">Galerie</a></li>
+    <li><a href="#termine"   data-de="Termine"   data-en="Events">Termine</a></li>
+    <li><a href="#kontakt"   data-de="Kontakt"   data-en="Contact">Kontakt</a></li>
   </ul>
 
   <div class="nav-right">
     <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
-      <button class="lang-btn"        data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -47,14 +39,14 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
   <ul>
-    <li><a href="#ueber-uns" data-de="Über uns"   data-en="About">Über uns</a></li>
-    <li><a href="#galerie"   data-de="Galerie"    data-en="Gallery">Galerie</a></li>
-    <li><a href="#termine"   data-de="Termine"    data-en="Events">Termine</a></li>
-    <li><a href="#kontakt"   data-de="Kontakt"    data-en="Contact">Kontakt</a></li>
+    <li><a href="#ueber-uns" data-de="Über uns"  data-en="About">Über uns</a></li>
+    <li><a href="#galerie"   data-de="Galerie"   data-en="Gallery">Galerie</a></li>
+    <li><a href="#termine"   data-de="Termine"   data-en="Events">Termine</a></li>
+    <li><a href="#kontakt"   data-de="Kontakt"   data-en="Contact">Kontakt</a></li>
   </ul>
   <div class="lang-toggle">
-    <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
-    <button class="lang-btn"        data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
   </div>
 </div>
 
@@ -67,18 +59,19 @@
 
     <div class="hero-tag">
       <span class="hero-tag-dot"></span>
-      <span data-de="Willkommen bei uns" data-en="Welcome to our club">Willkommen bei uns</span>
+      <span data-de="Community Space · Wechselnde Orte"
+            data-en="Community Space · Rotating Locations">Community Space · Wechselnde Orte</span>
     </div>
 
     <h1 class="hero-title">
       <!-- ✏️ Titel anpassen / Edit title -->
-      <span>Gemeinsam</span> stark –<br>Euer Vereinsname
+      <span>Black Literature</span><br>& Gemeinschaft
     </h1>
 
     <p class="hero-desc"
-       data-de="Kurze, einladende Beschreibung des Vereins. Was macht ihr? Wen heißt ihr willkommen? Was macht eure Gemeinschaft besonders?"
-       data-en="A short, inviting description of the club. What do you do? Who do you welcome? What makes your community special?">
-      Kurze, einladende Beschreibung des Vereins. Was macht ihr? Wen heißt ihr willkommen? Was macht eure Gemeinschaft besonders?
+       data-de="Kurze, einladende Beschreibung des Kollektivs. Was macht ihr? Wen heißt ihr willkommen? Was macht eure Gemeinschaft besonders?"
+       data-en="A short, inviting description of the collective. What do you do? Who do you welcome? What makes your community special?">
+      Kurze, einladende Beschreibung des Kollektivs. Was macht ihr? Wen heißt ihr willkommen? Was macht eure Gemeinschaft besonders?
     </p>
 
     <div class="hero-actions">
@@ -96,7 +89,8 @@
   <div class="hero-right">
     <!--
       BILD EINFÜGEN / INSERT IMAGE:
-      <img src="images/hero.jpg" alt="Vereinsfoto">
+      Kommentar entfernen und eigenes Bild einsetzen:
+      <img src="images/hero.jpg" alt="LIAA Kollektiv">
     -->
     <div class="hero-img-placeholder">
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,18 +98,9 @@
         <circle cx="22" cy="28" r="6" stroke="currentColor" stroke-width="2"/>
         <path d="M4 40l14-10 10 8 12-14 20 18" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
       </svg>
-      <p data-de="Euer Vereinsbild hier einfügen" data-en="Insert your club photo here">
-        Euer Vereinsbild hier einfügen
+      <p data-de="Euer Bild hier einfügen" data-en="Insert your photo here">
+        Euer Bild hier einfügen
       </p>
-    </div>
-
-    <!-- Floating Badge -->
-    <div class="hero-badge">
-      <div class="hero-badge-icon">🎉</div>
-      <div class="hero-badge-text">
-        <strong data-de="Seit 1987 aktiv" data-en="Active since 1987">Seit 1987 aktiv</strong>
-        <span data-de="320 Mitglieder" data-en="320 members">320 Mitglieder</span>
-      </div>
     </div>
   </div>
 </section>
@@ -127,12 +112,16 @@
 <section class="section about" id="ueber-uns">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-tag" data-de="Wer wir sind" data-en="Who we are">Wer wir sind</div>
-      <h2 class="section-title" data-de="Über den Verein" data-en="About the Club">Über den Verein</h2>
+      <div class="section-tag"
+           data-de="Wer wir sind"
+           data-en="Who we are">Wer wir sind</div>
+      <h2 class="section-title"
+          data-de="Über das Kollektiv"
+          data-en="About the Collective">Über das Kollektiv</h2>
       <p class="section-subtitle"
-         data-de="Eine kurze Einleitung, die den Verein herzlich vorstellt."
-         data-en="A short introduction presenting the club in a warm, welcoming tone.">
-        Eine kurze Einleitung, die den Verein herzlich vorstellt.
+         data-de="Eine kurze Einleitung, die das Kollektiv herzlich vorstellt."
+         data-en="A short introduction presenting the collective in a warm, welcoming tone.">
+        Eine kurze Einleitung, die das Kollektiv herzlich vorstellt.
       </p>
     </div>
 
@@ -140,9 +129,9 @@
       <div>
         <!-- ✏️ TEXTE ANPASSEN / EDIT TEXTS -->
         <p class="reveal"
-           data-de="Hier steht eure Vereinsgeschichte — wann gegründet, wo, mit welchem Ziel. Erzählt, wofür ihr steht und was euch als Gemeinschaft ausmacht."
-           data-en="Here goes your club's history — when it was founded, where, and with what goal in mind. Tell visitors what you stand for as a community.">
-          Hier steht eure Vereinsgeschichte — wann gegründet, wo, mit welchem Ziel. Erzählt, wofür ihr steht und was euch als Gemeinschaft ausmacht.
+           data-de="Hier steht eure Geschichte — wann gegründet, wo, mit welchem Ziel. Erzählt, wofür ihr steht und was euch als Gemeinschaft ausmacht."
+           data-en="Here goes your story — when it was founded, where, and with what goal in mind. Tell visitors what you stand for as a community.">
+          Hier steht eure Geschichte — wann gegründet, wo, mit welchem Ziel. Erzählt, wofür ihr steht und was euch als Gemeinschaft ausmacht.
         </p>
         <p class="reveal"
            data-de="Ein zweiter Absatz kann eure Werte, Projekte oder besondere Aktivitäten beschreiben. Dieser Text lässt sich jederzeit einfach anpassen."
@@ -154,7 +143,7 @@
       <!-- ✏️ ZAHLEN ANPASSEN / EDIT NUMBERS -->
       <div class="about-stats">
         <div class="stat-card reveal">
-          <div class="stat-number">1987</div>
+          <div class="stat-number">2019</div>
           <div class="stat-label" data-de="Gegründet" data-en="Founded">Gegründet</div>
         </div>
         <div class="stat-card reveal">
@@ -166,8 +155,8 @@
           <div class="stat-label" data-de="Events / Jahr" data-en="Events / Year">Events / Jahr</div>
         </div>
         <div class="stat-card reveal">
-          <div class="stat-number">4</div>
-          <div class="stat-label" data-de="Abteilungen" data-en="Departments">Abteilungen</div>
+          <div class="stat-number">∞</div>
+          <div class="stat-label" data-de="Wechselnde Orte" data-en="Rotating Locations">Wechselnde Orte</div>
         </div>
       </div>
     </div>
@@ -187,17 +176,17 @@
 
     <!--
       BILDER EINFÜGEN / INSERT IMAGES:
-      Ersetze die <div class="gallery-placeholder"> durch:
-      <img src="images/foto1.jpg" alt="Beschreibung">
+      Ersetze <div class="gallery-placeholder"> + SVG durch:
+      <img src="images/galerie-1.jpg" alt="Beschreibung">
 
-      Bildempfehlungen:
-        Großes Bild (links):  ~800×600 px
-        Kleine Bilder:        ~400×300 px
+      Größen:
+        Bild 1 (groß links):  ~800×600 px
+        Bilder 2–4 (klein):   ~400×300 px
     -->
     <div class="gallery-grid">
 
       <div class="gallery-item reveal">
-        <!-- <img src="images/galerie-1.jpg" alt="Vereinsfoto 1"> -->
+        <!-- <img src="images/galerie-1.jpg" alt="Foto 1"> -->
         <div class="gallery-placeholder">
           <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="6" width="32" height="24" rx="3"/>
@@ -207,12 +196,13 @@
           <span data-de="Bild 1 einfügen" data-en="Insert image 1">Bild 1 einfügen</span>
         </div>
         <div class="gallery-overlay">
-          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+          <span class="gallery-caption-hover"
+                data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
         </div>
       </div>
 
       <div class="gallery-item reveal">
-        <!-- <img src="images/galerie-2.jpg" alt="Vereinsfoto 2"> -->
+        <!-- <img src="images/galerie-2.jpg" alt="Foto 2"> -->
         <div class="gallery-placeholder">
           <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="6" width="32" height="24" rx="3"/>
@@ -222,12 +212,13 @@
           <span data-de="Bild 2 einfügen" data-en="Insert image 2">Bild 2 einfügen</span>
         </div>
         <div class="gallery-overlay">
-          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+          <span class="gallery-caption-hover"
+                data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
         </div>
       </div>
 
       <div class="gallery-item reveal">
-        <!-- <img src="images/galerie-3.jpg" alt="Vereinsfoto 3"> -->
+        <!-- <img src="images/galerie-3.jpg" alt="Foto 3"> -->
         <div class="gallery-placeholder">
           <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="6" width="32" height="24" rx="3"/>
@@ -237,12 +228,13 @@
           <span data-de="Bild 3 einfügen" data-en="Insert image 3">Bild 3 einfügen</span>
         </div>
         <div class="gallery-overlay">
-          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+          <span class="gallery-caption-hover"
+                data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
         </div>
       </div>
 
       <div class="gallery-item reveal">
-        <!-- <img src="images/galerie-4.jpg" alt="Vereinsfoto 4"> -->
+        <!-- <img src="images/galerie-4.jpg" alt="Foto 4"> -->
         <div class="gallery-placeholder">
           <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="6" width="32" height="24" rx="3"/>
@@ -252,7 +244,8 @@
           <span data-de="Bild 4 einfügen" data-en="Insert image 4">Bild 4 einfügen</span>
         </div>
         <div class="gallery-overlay">
-          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+          <span class="gallery-caption-hover"
+                data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
         </div>
       </div>
 
@@ -269,15 +262,18 @@
     <div class="events-topbar reveal">
       <div class="section-header" style="margin-bottom:0">
         <div class="section-tag" data-de="Kalender" data-en="Calendar">Kalender</div>
-        <h2 class="section-title" data-de="Kommende Termine" data-en="Upcoming Events">Kommende Termine</h2>
+        <h2 class="section-title"
+            data-de="Kommende Termine"
+            data-en="Upcoming Events">Kommende Termine</h2>
         <p class="section-subtitle"
-           data-de="Alle Termine werden in der Datei events.js verwaltet — einfach und ohne HTML-Kenntnisse."
-           data-en="All events are managed in events.js — simple, no HTML knowledge needed.">
-          Alle Termine werden in der Datei <code>events.js</code> verwaltet — einfach und ohne HTML-Kenntnisse.
+           data-de="Alle Termine werden in der Datei events.js gepflegt — ohne HTML-Kenntnisse."
+           data-en="All events are managed in events.js — no HTML knowledge needed.">
+          Alle Termine werden in der Datei <code>events.js</code> gepflegt — ohne HTML-Kenntnisse.
         </p>
       </div>
       <div class="edit-tip">
-        ✎ <span data-de="Termine in events.js bearbeiten" data-en="Edit events in events.js">Termine in events.js bearbeiten</span>
+        ✎ <span data-de="Termine in events.js bearbeiten"
+                data-en="Edit events in events.js">Termine in events.js bearbeiten</span>
       </div>
     </div>
 
@@ -306,23 +302,23 @@
     <div class="contact-grid">
       <div class="contact-card reveal">
         <div class="contact-icon">📍</div>
-        <h4 data-de="Adresse" data-en="Address">Adresse</h4>
-        <p>Musterstraße 12<br>10115 Berlin</p>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">✉️</div>
-        <h4 data-de="E-Mail & Telefon" data-en="Email & Phone">E-Mail & Telefon</h4>
-        <p>
-          <a href="mailto:info@verein.de">info@verein.de</a><br>
-          +49 30 123 456 78
+        <h4 data-de="Aktueller Standort" data-en="Current Location">Aktueller Standort</h4>
+        <p data-de="Wechselnde Orte in Berlin — aktuelle Adresse bei den jeweiligen Terminen"
+           data-en="Rotating locations in Berlin — current address listed with each event">
+          Wechselnde Orte in Berlin — aktuelle Adresse bei den jeweiligen Terminen
         </p>
       </div>
       <div class="contact-card reveal">
-        <div class="contact-icon">🕐</div>
-        <h4 data-de="Öffnungszeiten" data-en="Opening Hours">Öffnungszeiten</h4>
+        <div class="contact-icon">✉️</div>
+        <h4 data-de="E-Mail" data-en="Email">E-Mail</h4>
+        <p><a href="mailto:info@liaa-kollektiv.de">info@liaa-kollektiv.de</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">💬</div>
+        <h4 data-de="Soziale Medien" data-en="Social Media">Soziale Medien</h4>
         <p>
-          <span data-de="Mo – Fr: 9:00 – 17:00 Uhr" data-en="Mon – Fri: 9:00 AM – 5:00 PM">Mo – Fr: 9:00 – 17:00 Uhr</span><br>
-          <span data-de="Sa: 10:00 – 14:00 Uhr"      data-en="Sat: 10:00 AM – 2:00 PM">Sa: 10:00 – 14:00 Uhr</span>
+          <a href="#">Instagram</a><br>
+          <a href="#" data-de="Newsletter" data-en="Newsletter">Newsletter</a>
         </p>
       </div>
     </div>
@@ -335,7 +331,7 @@
      ══════════════════════════════════════ -->
 <footer class="footer">
   <p>
-    © 2025 Vereinsname
+    © 2025 LIAA Kollektiv
     <span class="footer-sep">·</span>
     <a href="#" data-de="Impressum" data-en="Imprint">Impressum</a>
     <span class="footer-sep">·</span>
@@ -344,9 +340,7 @@
 </footer>
 
 
-<!-- ══════════════════════════════════════
-     SCRIPTS
-     ══════════════════════════════════════ -->
+<!-- Scripts -->
 <script src="events.js"></script>
 <script src="script.js"></script>
 
