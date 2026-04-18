@@ -1,176 +1,354 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>LIAA Kollektiv</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vereinsname</title>
+  <meta name="description" content="Willkommen beim Verein — moderne, freundliche Vereinsseite.">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-lang="de">
 
-<header>
-  <div class="logo">LIAA</div>
+<!-- ══════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════ -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">V</div>
+    Vereinsname
+  </a>
 
-  <nav>
-    <a href="#about">Über Uns</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#events">Termine</a>
-    <a href="#contact">Kontakt</a>
-  </nav>
-
-  <div class="social">
-    <a href="https://instagram.com" target="_blank">
-      <img src="images/instagram.svg" alt="Instagram">
-    </a>
-  </div>
-</header>
-
-<main>
-
-<section id="about">
-  <h2>Über Uns</h2>
-  <p>Wir sind das LIAA Kollektiv – ein offenes Netzwerk für kreative Zusammenarbeit.</p>
-</section>
-
-<section id="gallery">
-  <h2>Galerie</h2>
-  <div class="gallery">
-    <img src="images/gallery/img1.jpg" alt="">
-    <img src="images/gallery/img2.jpg" alt="">
-  </div>
-</section>
-
-<section id="events">
-  <h2>Termine</h2>
-  <div id="event-list"></div>
-</section>
-
-<section id="contact">
-  <h2>Kontakt</h2>
-  <p>Email: kontakt@liaa.de</p>
-</section>
-
-</main>
-
-<footer>
-  <p>LIAA © 2026 | <a href="impressum.html">Impressum</a></p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vereinsname</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<nav>
-  <a href="#" class="nav-logo">Vereinsname</a>
   <ul class="nav-links">
-    <li><a href="#ueber-uns" data-lang="de">Über uns</a><a href="#ueber-uns" data-lang="en">About</a></li>
-    <li><a href="#galerie" data-lang="de">Galerie</a><a href="#galerie" data-lang="en">Gallery</a></li>
-    <li><a href="#termine" data-lang="de">Termine</a><a href="#termine" data-lang="en">Events</a></li>
-    <li><a href="#kontakt" data-lang="de">Kontakt</a><a href="#kontakt" data-lang="en">Contact</a></li>
+    <li><a href="#ueber-uns"
+           data-de="Über uns"
+           data-en="About">Über uns</a></li>
+    <li><a href="#galerie"
+           data-de="Galerie"
+           data-en="Gallery">Galerie</a></li>
+    <li><a href="#termine"
+           data-de="Termine"
+           data-en="Events">Termine</a></li>
+    <li><a href="#kontakt"
+           data-de="Kontakt"
+           data-en="Contact">Kontakt</a></li>
   </ul>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+      <button class="lang-btn"        data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- HERO bleibt unverändert -->
-<section class="hero" style="padding:0">
-  <div class="hero-text">
-    <p class="hero-eyebrow" data-lang="de">Willkommen im Verein</p>
-    <p class="hero-eyebrow" data-lang="en">Welcome to our club</p>
-    <h1 class="hero-title">Vereinsname</h1>
-    <p class="hero-subtitle" data-lang="de">
-      Kurze Beschreibung des Vereins.
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#ueber-uns" data-de="Über uns"   data-en="About">Über uns</a></li>
+    <li><a href="#galerie"   data-de="Galerie"    data-en="Gallery">Galerie</a></li>
+    <li><a href="#termine"   data-de="Termine"    data-en="Events">Termine</a></li>
+    <li><a href="#kontakt"   data-de="Kontakt"    data-en="Contact">Kontakt</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn"        data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+     ══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+
+    <div class="hero-tag">
+      <span class="hero-tag-dot"></span>
+      <span data-de="Willkommen bei uns" data-en="Welcome to our club">Willkommen bei uns</span>
+    </div>
+
+    <h1 class="hero-title">
+      <!-- ✏️ Titel anpassen / Edit title -->
+      <span>Gemeinsam</span> stark –<br>Euer Vereinsname
+    </h1>
+
+    <p class="hero-desc"
+       data-de="Kurze, einladende Beschreibung des Vereins. Was macht ihr? Wen heißt ihr willkommen? Was macht eure Gemeinschaft besonders?"
+       data-en="A short, inviting description of the club. What do you do? Who do you welcome? What makes your community special?">
+      Kurze, einladende Beschreibung des Vereins. Was macht ihr? Wen heißt ihr willkommen? Was macht eure Gemeinschaft besonders?
     </p>
-    <p class="hero-subtitle" data-lang="en">
-      A short description of the club.
-    </p>
-    <a href="#termine" class="hero-cta">Termine ansehen</a>
+
+    <div class="hero-actions">
+      <a href="#termine" class="btn-primary">
+        <span data-de="Termine ansehen" data-en="View Events">Termine ansehen</span>
+        →
+      </a>
+      <a href="#kontakt" class="btn-secondary">
+        <span data-de="Kontakt aufnehmen" data-en="Get in touch">Kontakt aufnehmen</span>
+      </a>
+    </div>
+
   </div>
 
-  <div class="hero-image">
-    <!-- 👇 IMAGE FOLDER -->
-    <!-- <img src="images/hero.jpg" alt=""> -->
-  </div>
-</section>
+  <div class="hero-right">
+    <!--
+      BILD EINFÜGEN / INSERT IMAGE:
+      <img src="images/hero.jpg" alt="Vereinsfoto">
+    -->
+    <div class="hero-img-placeholder">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="12" width="56" height="40" rx="5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="22" cy="28" r="6" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 40l14-10 10 8 12-14 20 18" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      <p data-de="Euer Vereinsbild hier einfügen" data-en="Insert your club photo here">
+        Euer Vereinsbild hier einfügen
+      </p>
+    </div>
 
-<!-- ÜBER UNS unverändert -->
-<section class="about" id="ueber-uns">
-  <p class="section-label">Wer wir sind</p>
-  <h2 class="section-title">Über den Verein</h2>
-  <div class="section-divider"></div>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>Hier steht eure Vereinsgeschichte.</p>
+    <!-- Floating Badge -->
+    <div class="hero-badge">
+      <div class="hero-badge-icon">🎉</div>
+      <div class="hero-badge-text">
+        <strong data-de="Seit 1987 aktiv" data-en="Active since 1987">Seit 1987 aktiv</strong>
+        <span data-de="320 Mitglieder" data-en="320 members">320 Mitglieder</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- GALERIE mit /images -->
-<section class="gallery" id="galerie">
-  <p class="section-label">Eindrücke</p>
-  <h2 class="section-title">Galerie</h2>
-  <div class="section-divider"></div>
 
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="images/img1.jpg" alt="">
+<!-- ══════════════════════════════════════
+     ÜBER UNS / ABOUT
+     ══════════════════════════════════════ -->
+<section class="section about" id="ueber-uns">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag" data-de="Wer wir sind" data-en="Who we are">Wer wir sind</div>
+      <h2 class="section-title" data-de="Über den Verein" data-en="About the Club">Über den Verein</h2>
+      <p class="section-subtitle"
+         data-de="Eine kurze Einleitung, die den Verein herzlich vorstellt."
+         data-en="A short introduction presenting the club in a warm, welcoming tone.">
+        Eine kurze Einleitung, die den Verein herzlich vorstellt.
+      </p>
     </div>
-    <div class="gallery-item">
-      <img src="images/img2.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="images/img3.jpg" alt="">
+
+    <div class="about-grid">
+      <div>
+        <!-- ✏️ TEXTE ANPASSEN / EDIT TEXTS -->
+        <p class="reveal"
+           data-de="Hier steht eure Vereinsgeschichte — wann gegründet, wo, mit welchem Ziel. Erzählt, wofür ihr steht und was euch als Gemeinschaft ausmacht."
+           data-en="Here goes your club's history — when it was founded, where, and with what goal in mind. Tell visitors what you stand for as a community.">
+          Hier steht eure Vereinsgeschichte — wann gegründet, wo, mit welchem Ziel. Erzählt, wofür ihr steht und was euch als Gemeinschaft ausmacht.
+        </p>
+        <p class="reveal"
+           data-de="Ein zweiter Absatz kann eure Werte, Projekte oder besondere Aktivitäten beschreiben. Dieser Text lässt sich jederzeit einfach anpassen."
+           data-en="A second paragraph can describe your values, projects, or special activities. This text can be updated at any time.">
+          Ein zweiter Absatz kann eure Werte, Projekte oder besondere Aktivitäten beschreiben. Dieser Text lässt sich jederzeit einfach anpassen.
+        </p>
+      </div>
+
+      <!-- ✏️ ZAHLEN ANPASSEN / EDIT NUMBERS -->
+      <div class="about-stats">
+        <div class="stat-card reveal">
+          <div class="stat-number">1987</div>
+          <div class="stat-label" data-de="Gegründet" data-en="Founded">Gegründet</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number">320</div>
+          <div class="stat-label" data-de="Mitglieder" data-en="Members">Mitglieder</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number">12</div>
+          <div class="stat-label" data-de="Events / Jahr" data-en="Events / Year">Events / Jahr</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number">4</div>
+          <div class="stat-label" data-de="Abteilungen" data-en="Departments">Abteilungen</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 🔥 TERMINE NEU (nur Container) -->
-<section class="events" id="termine">
-  <div class="events-intro">
-    <div>
-      <p class="section-label">Kalender</p>
-      <h2 class="section-title">Kommende Termine</h2>
-      <div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════
+     GALERIE / GALLERY
+     ══════════════════════════════════════ -->
+<section class="section gallery" id="galerie">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag" data-de="Einblicke" data-en="Impressions">Einblicke</div>
+      <h2 class="section-title" data-de="Galerie" data-en="Gallery">Galerie</h2>
+    </div>
+
+    <!--
+      BILDER EINFÜGEN / INSERT IMAGES:
+      Ersetze die <div class="gallery-placeholder"> durch:
+      <img src="images/foto1.jpg" alt="Beschreibung">
+
+      Bildempfehlungen:
+        Großes Bild (links):  ~800×600 px
+        Kleine Bilder:        ~400×300 px
+    -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <!-- <img src="images/galerie-1.jpg" alt="Vereinsfoto 1"> -->
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="6" width="32" height="24" rx="3"/>
+            <circle cx="12" cy="16" r="3.5"/>
+            <path d="M2 24l8-6 6 5 7-8 11 9"/>
+          </svg>
+          <span data-de="Bild 1 einfügen" data-en="Insert image 1">Bild 1 einfügen</span>
+        </div>
+        <div class="gallery-overlay">
+          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <!-- <img src="images/galerie-2.jpg" alt="Vereinsfoto 2"> -->
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="6" width="32" height="24" rx="3"/>
+            <circle cx="12" cy="16" r="3.5"/>
+            <path d="M2 24l8-6 6 5 7-8 11 9"/>
+          </svg>
+          <span data-de="Bild 2 einfügen" data-en="Insert image 2">Bild 2 einfügen</span>
+        </div>
+        <div class="gallery-overlay">
+          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <!-- <img src="images/galerie-3.jpg" alt="Vereinsfoto 3"> -->
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="6" width="32" height="24" rx="3"/>
+            <circle cx="12" cy="16" r="3.5"/>
+            <path d="M2 24l8-6 6 5 7-8 11 9"/>
+          </svg>
+          <span data-de="Bild 3 einfügen" data-en="Insert image 3">Bild 3 einfügen</span>
+        </div>
+        <div class="gallery-overlay">
+          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <!-- <img src="images/galerie-4.jpg" alt="Vereinsfoto 4"> -->
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="6" width="32" height="24" rx="3"/>
+            <circle cx="12" cy="16" r="3.5"/>
+            <path d="M2 24l8-6 6 5 7-8 11 9"/>
+          </svg>
+          <span data-de="Bild 4 einfügen" data-en="Insert image 4">Bild 4 einfügen</span>
+        </div>
+        <div class="gallery-overlay">
+          <span class="gallery-caption-hover" data-de="Bildunterschrift" data-en="Caption">Bildunterschrift</span>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <div class="event-list" id="event-list"></div>
 </section>
 
-<!-- Kontakt unverändert -->
-<section class="contact" id="kontakt">
-  <h2 class="section-title">Kontakt</h2>
-  <div class="contact-grid">
-    <div class="contact-item">
-      <p>Musterstraße 12<br>Berlin</p>
+
+<!-- ══════════════════════════════════════
+     TERMINE / EVENTS
+     ══════════════════════════════════════ -->
+<section class="section events" id="termine">
+  <div class="section-inner">
+    <div class="events-topbar reveal">
+      <div class="section-header" style="margin-bottom:0">
+        <div class="section-tag" data-de="Kalender" data-en="Calendar">Kalender</div>
+        <h2 class="section-title" data-de="Kommende Termine" data-en="Upcoming Events">Kommende Termine</h2>
+        <p class="section-subtitle"
+           data-de="Alle Termine werden in der Datei events.js verwaltet — einfach und ohne HTML-Kenntnisse."
+           data-en="All events are managed in events.js — simple, no HTML knowledge needed.">
+          Alle Termine werden in der Datei <code>events.js</code> verwaltet — einfach und ohne HTML-Kenntnisse.
+        </p>
+      </div>
+      <div class="edit-tip">
+        ✎ <span data-de="Termine in events.js bearbeiten" data-en="Edit events in events.js">Termine in events.js bearbeiten</span>
+      </div>
+    </div>
+
+    <!-- Events werden automatisch aus events.js geladen -->
+    <div class="event-grid" id="event-list"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     KONTAKT / CONTACT
+     ══════════════════════════════════════ -->
+<section class="section contact" id="kontakt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag" data-de="Sprecht uns an" data-en="Get in touch">Sprecht uns an</div>
+      <h2 class="section-title" data-de="Kontakt" data-en="Contact">Kontakt</h2>
+      <p class="section-subtitle"
+         data-de="Wir freuen uns über eure Nachricht — meldet euch jederzeit."
+         data-en="We'd love to hear from you — reach out anytime.">
+        Wir freuen uns über eure Nachricht — meldet euch jederzeit.
+      </p>
+    </div>
+
+    <!-- ✏️ KONTAKTDATEN ANPASSEN / EDIT CONTACT INFO -->
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-icon">📍</div>
+        <h4 data-de="Adresse" data-en="Address">Adresse</h4>
+        <p>Musterstraße 12<br>10115 Berlin</p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">✉️</div>
+        <h4 data-de="E-Mail & Telefon" data-en="Email & Phone">E-Mail & Telefon</h4>
+        <p>
+          <a href="mailto:info@verein.de">info@verein.de</a><br>
+          +49 30 123 456 78
+        </p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">🕐</div>
+        <h4 data-de="Öffnungszeiten" data-en="Opening Hours">Öffnungszeiten</h4>
+        <p>
+          <span data-de="Mo – Fr: 9:00 – 17:00 Uhr" data-en="Mon – Fri: 9:00 AM – 5:00 PM">Mo – Fr: 9:00 – 17:00 Uhr</span><br>
+          <span data-de="Sa: 10:00 – 14:00 Uhr"      data-en="Sat: 10:00 AM – 2:00 PM">Sa: 10:00 – 14:00 Uhr</span>
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2025 Vereinsname</p>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="footer">
+  <p>
+    © 2025 Vereinsname
+    <span class="footer-sep">·</span>
+    <a href="#" data-de="Impressum" data-en="Imprint">Impressum</a>
+    <span class="footer-sep">·</span>
+    <a href="#" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+  </p>
 </footer>
 
-<script src="script.js"></script>
 
-<script>
-function setLang(lang) {
-  document.body.className = 'lang-' + lang;
-}
-</script>
+<!-- ══════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════ -->
+<script src="events.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
