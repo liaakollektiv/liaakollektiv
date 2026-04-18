@@ -270,7 +270,7 @@ body {
   letter-spacing: -0.02em;
 }
 .hero-title span {
-  color: var(--clr-primary);
+  color: var(--clr-text);
 }
 .hero-desc {
   font-size: 1.05rem;
