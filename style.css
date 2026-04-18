@@ -631,7 +631,7 @@ body {
 }
 
 .event-date {
-  background: var(--clr-bg);
+  background: var(--clr-surface);
   border-radius: var(--radius-md);
   padding: 10px 8px;
   text-align: center;
