@@ -557,11 +557,11 @@ body {
   border-color: var(--clr-primary-m);
 }
 .event-date {
-  background: var(--clr-surface-3);
+  background: transparent;
   border-radius: var(--radius-md);
   padding: 10px 8px;
   text-align: center;
-  border: 1px solid var(--clr-primary-m);
+  border: 1px solid var(--clr-border);
   flex-shrink: 0;
 }
 .event-day {
