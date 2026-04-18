@@ -17,8 +17,8 @@
 
   /* Surfaces */
   --clr-bg:        #F8F5EE;       /* warm parchment */
-  --clr-surface:   #CBC287;
-  --clr-surface-2: #C45B96;       /* slightly warmer */
+  --clr-surface:   #FFFFFF;
+  --clr-surface-2: #F2EDE3;       /* slightly warmer */
 
   /* Primary = blue */
   --clr-primary:   var(--blue);
@@ -30,8 +30,8 @@
   --clr-accent-l:  #FAF0EA;
 
   /* Olive tones for subtle backgrounds */
-  --clr-olive-l:   #F5F4E6;
-  --clr-olive-m:   #CBC287;
+  --clr-olive-l:   #C45B96;
+  --clr-olive-m:   #C45B96;
 
   /* Text */
   --clr-text:  #1A1714;
