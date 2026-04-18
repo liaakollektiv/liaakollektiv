@@ -19,6 +19,7 @@
   --clr-bg:        #F8F5EE;       /* warm parchment */
   --clr-surface:   #FFFFFF;
   --clr-surface-2: #F2EDE3;       /* slightly warmer */
+  --clr-surface-3:   #f7ebeb;
 
   /* Primary = pink */
   --clr-primary:   var(--pink);
@@ -631,7 +632,7 @@ body {
 }
 
 .event-date {
-  background: var(--clr-surface);
+  background: var(--clr-surface-3);
   border-radius: var(--radius-md);
   padding: 10px 8px;
   text-align: center;
