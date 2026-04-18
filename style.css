@@ -483,7 +483,7 @@ body {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26,23,20,0.4), transparent 60%;
+  background: rgba(26,23,20,0.4);
   opacity: 0;
   transition: opacity 0.3s;
   display: flex;
