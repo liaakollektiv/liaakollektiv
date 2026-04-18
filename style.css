@@ -322,8 +322,7 @@ body {
   transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 .btn-secondary:hover {
-  border-color: var(--clr-primary);
-  background: var(--clr-primary-l);
+  background: var(--clr-border);
   transform: translateY(-2px);
 }
 .hero-right {
