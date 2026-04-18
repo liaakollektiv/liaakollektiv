@@ -1,101 +1,141 @@
-fetch('events.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('event-list');
+/* ─────────────────────────────────────────────
+   VEREINSSEITE · script.js
+   ───────────────────────────────────────────── */
 
-    data.forEach(event => {
-      const div = document.createElement('div');
-      div.classList.add('event');
+/* ── LANGUAGE ── */
+let currentLang = localStorage.getItem('lang') || 'de';
 
-      div.innerHTML = `
-        <h3>${event.title}</h3>
-        <p><strong>Datum:</strong> ${event.date}</p>
-        <p><strong>Ort:</strong> ${event.location}</p>
-        <p>${event.description}</p>
-      `;
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.body.dataset.lang = lang;
+  document.documentElement.lang = lang;
 
-      container.appendChild(div);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Re-render events in new language
+  renderEvents();
+}
+
+/* ── EVENTS RENDERING ── */
+const STATUS_LABELS = {
+  open:    { de: 'Offen',      en: 'Open' },
+  members: { de: 'Mitglieder', en: 'Members only' },
+  full:    { de: 'Ausgebucht', en: 'Fully booked' },
+};
+
+function renderEvents() {
+  const container = document.getElementById('event-list');
+  if (!container) return;
+
+  if (!EVENTS || EVENTS.length === 0) {
+    container.innerHTML = `
+      <div class="no-events">
+        <span data-de="Keine Termine eingetragen." data-en="No events listed.">
+          ${currentLang === 'de' ? 'Keine Termine eingetragen.' : 'No events listed.'}
+        </span>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = EVENTS.map(ev => {
+    const title    = currentLang === 'de' ? ev.title_de    : ev.title_en;
+    const location = currentLang === 'de' ? ev.location_de : ev.location_en;
+    const month    = currentLang === 'de' ? ev.month_de    : ev.month_en;
+    const badge    = STATUS_LABELS[ev.status] || STATUS_LABELS.open;
+    const badgeLabel = badge[currentLang];
+
+    return `
+    <div class="event-card reveal">
+      <div class="event-date">
+        <div class="event-day">${ev.day}</div>
+        <div class="event-month">${month}</div>
+      </div>
+      <div class="event-info">
+        <h3>${title}</h3>
+        <div class="event-meta">
+          <span class="event-meta-item">
+            <svg class="event-meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>
+            </svg>
+            ${ev.time}
+          </span>
+          <span class="event-meta-item">
+            <svg class="event-meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 14S3 9.5 3 6a5 5 0 0 1 10 0c0 3.5-5 8-5 8z"/><circle cx="8" cy="6" r="1.5"/>
+            </svg>
+            ${location}
+          </span>
+        </div>
+      </div>
+      <span class="event-badge badge-${ev.status}">${badgeLabel}</span>
+    </div>`;
+  }).join('');
+
+  // trigger reveal for newly added cards
+  observeReveal();
+}
+
+/* ── SCROLL REVEAL ── */
+function observeReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
     });
-  })
-  .catch(error => console.error('Fehler beim Laden der Events:', error));async function loadEvents() {
-  const res = await fetch('events.json');
-  const events = await res.json();
+  }, { threshold: 0.1 });
 
-  const container = document.getElementById('event-list');
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+}
 
-  events.forEach(event => {
-    const date = new Date(event.date);
-    const day = date.getDate();
-    const month = date.toLocaleString('de-DE', { month: 'short' }).toUpperCase();
+/* ── MOBILE MENU ── */
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('open');
+}
 
-    const el = document.createElement('div');
-    el.className = 'event-item';
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
 
-    el.innerHTML = `
-      <div class="event-date-block">
-        <div class="event-day">${day}</div>
-        <div class="event-month">${month}</div>
-      </div>
-
-      <div class="event-info">
-        <h3>${event.title}</h3>
-        <div class="event-meta">
-          <span>🕖 ${event.time}</span>
-          <span>📍 ${event.location}</span>
-        </div>
-      </div>
-
-      <span class="event-badge badge-${event.type}">
-        ${event.type}
-      </span>
-    `;
-
-    container.appendChild(el);
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+  // Apply saved language
+  document.body.dataset.lang = currentLang;
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLang);
   });
-}
 
-loadEvents();async function loadEvents() {
-  const res = await fetch('events.json');
-  const events = await res.json();
+  // Render events from events.js
+  renderEvents();
 
-  const container = document.getElementById('event-list');
+  // Scroll reveal for static elements
+  observeReveal();
 
-  events.forEach(event => {
-    const date = new Date(event.date);
-    const day = date.getDate();
-    const month = date.toLocaleString('de-DE', { month: 'short' }).toUpperCase();
-
-    const el = document.createElement('div');
-    el.className = 'event-item';
-
-    el.innerHTML = `
-      <div class="event-date-block">
-        <div class="event-day">${day}</div>
-        <div class="event-month">${month}</div>
-      </div>
-
-      <div class="event-info">
-        <h3>${event.title_de}</h3>
-        <div class="event-meta">
-          <span>🕖 ${event.time}</span>
-          <span>📍 ${event.location_de}</span>
-        </div>
-      </div>
-
-      <span class="event-badge badge-${event.type}">
-        ${getLabel(event.type)}
-      </span>
-    `;
-
-    container.appendChild(el);
+  // Close mobile menu when link clicked
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', closeMenu);
   });
-}
 
-function getLabel(type) {
-  if (type === 'open') return 'Offen';
-  if (type === 'members') return 'Mitglieder';
-  if (type === 'full') return 'Ausgebucht';
-  return '';
-}
+  // Active nav link highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a, #mobile-menu a');
 
-loadEvents();
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.style.fontWeight = link.getAttribute('href') === '#' + entry.target.id ? '900' : '';
+          link.style.color = link.getAttribute('href') === '#' + entry.target.id ? 'var(--clr-primary)' : '';
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => sectionObserver.observe(s));
+});
