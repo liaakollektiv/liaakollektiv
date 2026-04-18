@@ -9,7 +9,7 @@
 /* ── CUSTOM PROPERTIES ── */
 :root {
   /* Brand palette */
-  --blue:   #71B8D8;
+  --blue:   #C45B96;
   --orange: #BF582F;
   --olive:  #CBC287;
   --green:  #43A953;
@@ -20,10 +20,10 @@
   --clr-surface:   #FFFFFF;
   --clr-surface-2: #F2EDE3;       /* slightly warmer */
 
-  /* Primary = blue */
-  --clr-primary:   var(--blue);
-  --clr-primary-l: #E8F4FB;
-  --clr-primary-m: #BAD9EA;
+  /* Primary = pink */
+  --clr-primary:   var(--pink);
+  --clr-primary-l: #ffd6ed;
+  --clr-primary-m: #ffaddb;
 
   /* Accent = orange */
   --clr-accent:    var(--orange);
