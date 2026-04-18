@@ -16,7 +16,7 @@
   --clr-bg:        #F8F5EE;
   --clr-surface:   #FFFFFF;
   --clr-surface-2: #F2EDE3;
-  --clr-surface-3: #f7ebeb;
+  --clr-surface-3: #bf582faf;
   /* Primary = pink */
   --clr-primary:   var(--pink);
   --clr-primary-l: #ffd6ed;
@@ -229,7 +229,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #bf582faf;
+  background: var(--clr-surface-3);
 }
 /* Tag pill */
 .hero-tag {
@@ -452,7 +452,7 @@ body {
    GALLERY
    ══════════════════════════════════════ */
 .gallery {
-  background: var(--clr-surface);
+  background: var(--clr-surface-3);
   border-top: 1px solid var(--clr-border);
 }
 .gallery-grid {
