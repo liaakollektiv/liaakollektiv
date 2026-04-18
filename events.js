@@ -33,7 +33,7 @@ const EVENTS = [
     time: "18:00 Uhr",
     location_de: "Vereinsheim",
     location_en: "Clubhouse",
-    status: "members",
+    status: "mögliche Notizen",
   },
   {
     day: "10",
@@ -44,7 +44,7 @@ const EVENTS = [
     time: "10:00 – 17:00 Uhr",
     location_de: "Hauptgebäude",
     location_en: "Main Building",
-    status: "open",
+    status: "mögliche Notizen",
   },
   {
     day: "22",
@@ -55,7 +55,7 @@ const EVENTS = [
     time: "19:00 Uhr",
     location_de: "Festsaal",
     location_en: "Main Hall",
-    status: "members",
+    status: "mögliche Notizen",
   },
   {
     day: "14",
@@ -66,7 +66,7 @@ const EVENTS = [
     time: "14:00 – 22:00 Uhr",
     location_de: "Außengelände",
     location_en: "Outdoor Area",
-    status: "full",
+    status: "mögliche Notizen",
   },
   {
     day: "05",
@@ -77,6 +77,6 @@ const EVENTS = [
     time: "10:00 – 13:00 Uhr",
     location_de: "Seminarraum 1",
     location_en: "Seminar Room 1",
-    status: "open",
+    status: "mögliche Notizen",
   },
 ];
