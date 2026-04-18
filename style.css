@@ -360,8 +360,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--clr-primary-l);
-  color: #2A6F8A;
+  background: var(--clr-surface3);
+  color: #000000;
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -369,7 +369,7 @@ body {
   padding: 5px 14px;
   border-radius: 100px;
   margin-bottom: 0.9rem;
-  border: 1px solid var(--clr-primary-m);
+  border: 1px solid var(--clr-border);
 }
 .section-title {
   font-family: 'Lora', serif;
